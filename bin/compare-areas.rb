@@ -87,7 +87,7 @@ def spatial_sql(query)
         # ignore if file is missing
     end
     cmd = "spatialite -batch -bail #{database} \"#{query}\""
-    res=`#{cmd} 2>>compare-areas.log`.chomp!
+    res=`#{cmd} 2>>compare-areas-err.log`.chomp!
     File.delete(database)
     return res
 end
